@@ -1,6 +1,6 @@
 {
   "name": "@nexo-labs/pkl-gen-ts",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "TypeScript code generator for PKL files",
   "main": "index.js",
   "keywords": [

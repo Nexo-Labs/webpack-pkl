@@ -1,6 +1,6 @@
 {
   "name": "@nexo-labs/pkl",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Complete PKL configuration toolkit for Node.js and Next.js applications",
   "main": "index.js",
   "keywords": [

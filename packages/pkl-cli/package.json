@@ -1,6 +1,6 @@
 {
   "name": "@nexo-labs/pkl-cli",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Cross-platform PKL CLI binary management for Node.js applications",
   "main": "index.js",
   "scripts": {

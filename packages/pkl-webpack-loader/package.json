@@ -1,6 +1,6 @@
 {
   "name": "@nexo-labs/pkl-webpack-loader",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Webpack loader for PKL files with automatic TypeScript generation",
   "main": "index.js",
   "keywords": [

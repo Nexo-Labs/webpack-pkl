@@ -1,6 +1,6 @@
 {
   "name": "@nexo-labs/nextjs-pkl-plugin",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Next.js plugin for seamless PKL configuration integration",
   "main": "index.js",
   "keywords": [
