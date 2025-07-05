@@ -1,0 +1,47 @@
+name: Publish @nexo-labs/pkl-cli
+
+on:
+  push:
+    tags:
+      - "pkl-cli-v*"
+    paths:
+      - "packages/pkl-cli/**"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org/"
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG_NAME=$(basename "$GITHUB_REF_NAME")
+          VERSION=${TAG_NAME#pkl-cli-v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update package.json version
+        working-directory: ./packages/pkl-cli
+        run: pnpm version ${{ steps.extract_version.outputs.version }} --no-git-tag-version
+        
+      - name: Publish to NPM
+        working-directory: ./packages/pkl-cli
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

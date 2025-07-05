@@ -1,0 +1,31 @@
+{
+  "name": "@nexo-labs/pkl-webpack-loader",
+  "version": "1.0.0",
+  "description": "Webpack loader for PKL files with automatic TypeScript generation",
+  "main": "index.js",
+  "keywords": [
+    "webpack",
+    "loader",
+    "pkl",
+    "configuration",
+    "typescript",
+    "nextjs"
+  ],
+  "author": "JDP Dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdp-dev/nextjs-pkl.git",
+    "directory": "packages/pkl-webpack-loader"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@nexo-labs/pkl-eval": "workspace:*",
+    "@nexo-labs/pkl-gen-ts": "workspace:*"
+  },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@nexo-labs/pkl",
+  "version": "1.0.0",
+  "description": "Complete PKL configuration toolkit for Node.js and Next.js applications",
+  "main": "index.js",
+  "keywords": [
+    "pkl",
+    "configuration",
+    "typescript",
+    "nextjs",
+    "config",
+    "validation",
+    "webpack"
+  ],
+  "author": "JDP Dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdp-dev/nextjs-pkl.git",
+    "directory": "packages/pkl"
+  },
+  "files": [
+    "index.js",
+    "bin"
+  ],
+  "bin": {
+    "pkl-gen-ts": "./node_modules/@nexo-labs/pkl-gen-ts/bin/pkl-gen-ts.js",
+    "pkl-process": "./bin/pkl-process.js"
+  },
+  "dependencies": {
+    "@nexo-labs/pkl-eval": "workspace:*",
+    "@nexo-labs/pkl-gen-ts": "workspace:*",
+    "yargs": "^17.7.2",
+    "glob": "^10.3.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "appName": "Next.js PKL Demo",
+  "version": "1.0.0",
+  "server": {
+    "host": "localhost",
+    "port": 3000,
+    "ssl": false
+  },
+  "database": {
+    "uri": "postgres://user:password@localhost:5432/demo",
+    "maxConnections": 20,
+    "timeout": 30
+  },
+  "features": {
+    "auth": true,
+    "logging": true,
+    "metrics": false,
+    "cache": true
+  },
+  "api": {
+    "baseUrl": "https://api.example.com",
+    "timeout": 5000,
+    "retries": 3
+  },
+  "ui": {
+    "theme": "light",
+    "language": "en",
+    "showDebugInfo": false
+  }
+}

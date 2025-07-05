@@ -1,0 +1,12 @@
+// Test configuration file
+name = "Pkl Test Config"
+version = 0.28
+server {
+  host = "localhost"
+  port = 3000
+}
+database {
+  uri = "postgres://user:pass@localhost:5432/testdb"
+  maxConnections = 10
+}
+features = List("auth", "logging", "metrics")

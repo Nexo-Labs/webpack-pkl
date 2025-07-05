@@ -1,0 +1,30 @@
+{
+  "name": "@nexo-labs/nextjs-pkl-plugin",
+  "version": "1.0.0",
+  "description": "Next.js plugin for seamless PKL configuration integration",
+  "main": "index.js",
+  "keywords": [
+    "nextjs",
+    "plugin",
+    "pkl",
+    "configuration",
+    "typescript",
+    "webpack"
+  ],
+  "author": "JDP Dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdp-dev/nextjs-pkl.git",
+    "directory": "packages/nextjs-pkl-plugin"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@nexo-labs/pkl-webpack-loader": "workspace:*"
+  },
+  "peerDependencies": {
+    "next": "^14.0.0"
+  }
+}

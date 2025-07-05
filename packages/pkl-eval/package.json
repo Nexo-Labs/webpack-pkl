@@ -1,0 +1,28 @@
+{
+  "name": "@nexo-labs/pkl-eval",
+  "version": "1.0.0",
+  "description": "PKL configuration file evaluator with caching and file watching",
+  "main": "index.js",
+  "keywords": [
+    "pkl",
+    "configuration",
+    "evaluator",
+    "cache",
+    "watcher"
+  ],
+  "author": "JDP Dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdp-dev/nextjs-pkl.git",
+    "directory": "packages/pkl-eval"
+  },
+  "files": [
+    "index.js",
+    "file-processor.js"
+  ],
+  "dependencies": {
+    "@nexo-labs/pkl-cli": "workspace:*",
+    "chokidar": "^3.5.3"
+  }
+}

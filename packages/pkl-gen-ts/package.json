@@ -1,0 +1,31 @@
+{
+  "name": "@nexo-labs/pkl-gen-ts",
+  "version": "1.0.0",
+  "description": "TypeScript code generator for PKL files",
+  "main": "index.js",
+  "keywords": [
+    "pkl",
+    "typescript",
+    "generator",
+    "configuration",
+    "codegen"
+  ],
+  "author": "JDP Dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdp-dev/nextjs-pkl.git",
+    "directory": "packages/pkl-gen-ts"
+  },
+  "files": [
+    "bin",
+    "index.js"
+  ],
+  "bin": {
+    "pkl-gen-ts": "./bin/pkl-gen-ts.js"
+  },
+  "dependencies": {
+    "@nexo-labs/pkl-cli": "workspace:*",
+    "yargs": "^17.7.2"
+  }
+}
