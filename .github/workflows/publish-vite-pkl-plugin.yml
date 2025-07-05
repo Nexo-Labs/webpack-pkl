@@ -43,16 +43,32 @@ jobs:
           VERSION=${TAG_NAME#vite-pkl-plugin-v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Update package.json version
+      - name: Update package version and dependencies
         working-directory: ./packages/vite-pkl-plugin
         run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
           TARGET_VERSION="${{ steps.extract_version.outputs.version }}"
-          if [ "$CURRENT_VERSION" != "$TARGET_VERSION" ]; then
-            pnpm version $TARGET_VERSION --no-git-tag-version
-          else
-            echo "Version already matches target version: $TARGET_VERSION"
-          fi
+          echo "Setting version to: $TARGET_VERSION"
+          
+          # Update main version
+          npm version $TARGET_VERSION --no-git-tag-version --allow-same-version
+          
+          # Update internal dependencies to use the same version
+          node -e "
+            const fs = require('fs');
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            const version = '$TARGET_VERSION';
+            
+            // Update dependencies that are internal packages
+            if (pkg.dependencies) {
+              Object.keys(pkg.dependencies).forEach(dep => {
+                if (dep.startsWith('@nexo-labs/')) {
+                  pkg.dependencies[dep] = '^' + version;
+                }
+              });
+            }
+            
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\\n');
+          "
         
       - name: Publish to NPM
         working-directory: ./packages/vite-pkl-plugin
