@@ -1,0 +1,31 @@
+{
+  "name": "@nexo-labs/vite-pkl-plugin",
+  "version": "0.0.2",
+  "description": "Vite plugin for seamless PKL configuration integration",
+  "main": "index.js",
+  "keywords": [
+    "vite",
+    "plugin",
+    "pkl",
+    "configuration",
+    "typescript",
+    "rollup"
+  ],
+  "author": "Nexo Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexo-labs/nextjs-pkl.git",
+    "directory": "packages/vite-pkl-plugin"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@nexo-labs/pkl-eval": "workspace:*",
+    "@nexo-labs/pkl-gen-ts": "workspace:*"
+  },
+  "peerDependencies": {
+    "vite": "^4.0.0 || ^5.0.0"
+  }
+} 

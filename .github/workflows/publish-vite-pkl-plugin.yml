@@ -1,11 +1,11 @@
-name: Publish @nexo-labs/pkl-cli
+name: Publish @nexo-labs/vite-pkl-plugin
 
 on:
   push:
     tags:
-      - "pkl-cli-v*"
+      - "vite-pkl-plugin-v*"
     paths:
-      - "packages/pkl-cli/**"
+      - "packages/vite-pkl-plugin/**"
 
 permissions:
   contents: read
@@ -29,19 +29,26 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Configure npm authentication
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Extract version from tag
         id: extract_version
         run: |
           TAG_NAME=$(basename "$GITHUB_REF_NAME")
-          VERSION=${TAG_NAME#pkl-cli-v}
+          VERSION=${TAG_NAME#vite-pkl-plugin-v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Update package.json version
-        working-directory: ./packages/pkl-cli
+        working-directory: ./packages/vite-pkl-plugin
         run: pnpm version ${{ steps.extract_version.outputs.version }} --no-git-tag-version
         
       - name: Publish to NPM
-        working-directory: ./packages/pkl-cli
+        working-directory: ./packages/vite-pkl-plugin
         run: pnpm publish --no-git-checks --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 

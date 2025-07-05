@@ -1,9 +1,10 @@
-# Next.js PKL Integration
+# PKL Integration Toolkit
 
-Complete PKL configuration toolkit for Node.js and Next.js applications with webpack integration.
+Complete PKL configuration toolkit for Node.js, Next.js, and Vite applications with seamless integration.
 
 ## 🚀 Quick Start
 
+### Next.js
 ```bash
 npm install @nexo-labs/nextjs-pkl-plugin
 ```
@@ -17,13 +18,29 @@ module.exports = withPkl({
 });
 ```
 
+### Vite
+```bash
+npm install @nexo-labs/vite-pkl-plugin
+```
+
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite';
+import pklPlugin from '@nexo-labs/vite-pkl-plugin';
+
+export default defineConfig({
+  plugins: [pklPlugin()]
+});
+```
+
 ## 📦 Packages
 
 | Package | Description | Version |
 |---------|-------------|---------|
 | [@nexo-labs/pkl](./packages/pkl) | Main toolkit | ![npm](https://img.shields.io/npm/v/@nexo-labs/pkl) |
-| [@nexo-labs/pkl-webpack-loader](./packages/pkl-webpack-loader) | Webpack loader | ![npm](https://img.shields.io/npm/v/@nexo-labs/pkl-webpack-loader) |
 | [@nexo-labs/nextjs-pkl-plugin](./packages/nextjs-pkl-plugin) | Next.js plugin | ![npm](https://img.shields.io/npm/v/@nexo-labs/nextjs-pkl-plugin) |
+| [@nexo-labs/vite-pkl-plugin](./packages/vite-pkl-plugin) | Vite plugin | ![npm](https://img.shields.io/npm/v/@nexo-labs/vite-pkl-plugin) |
+| [@nexo-labs/pkl-webpack-loader](./packages/pkl-webpack-loader) | Webpack loader | ![npm](https://img.shields.io/npm/v/@nexo-labs/pkl-webpack-loader) |
 | [@nexo-labs/pkl-cli](./packages/pkl-cli) | Binary management | ![npm](https://img.shields.io/npm/v/@nexo-labs/pkl-cli) |
 | [@nexo-labs/pkl-eval](./packages/pkl-eval) | Configuration evaluator | ![npm](https://img.shields.io/npm/v/@nexo-labs/pkl-eval) |
 | [@nexo-labs/pkl-gen-ts](./packages/pkl-gen-ts) | TypeScript generator | ![npm](https://img.shields.io/npm/v/@nexo-labs/pkl-gen-ts) |
@@ -31,7 +48,8 @@ module.exports = withPkl({
 ## ✨ Features
 
 - ✅ **Automatic File Processing**: `config.pkl` → `config-types.ts` + `config.json`
-- ✅ **Webpack Integration**: Hot reload when `.pkl` files change
+- ✅ **Framework Integration**: Next.js, Vite, and Webpack support
+- ✅ **Hot Reload**: Live updates when `.pkl` files change
 - ✅ **Zero Configuration**: Just install and use
 - ✅ **TypeScript Support**: Full type safety with generated definitions
 - ✅ **Cross-platform**: Works on Windows, macOS, and Linux
@@ -78,28 +96,42 @@ const config = await load<Config>('./config.pkl');
 console.log(config.server.port); // TypeScript knows this is a number
 ```
 
-## 🔥 Webpack Integration
+## 🔥 Framework Integration
 
-The webpack loader automatically processes PKL files:
+### Next.js
+```javascript
+// Direct import (with Next.js plugin)
+import config from './config.pkl';
+console.log(config.appName);
+```
 
+### Vite
+```javascript
+// Direct import (with Vite plugin)
+import config from './config.pkl';
+console.log(config.appName);
+```
+
+### Webpack
 ```javascript
 // Direct import (with webpack loader)
 import config from './config.pkl';
-
-// config is automatically compiled and typed
 console.log(config.appName);
 ```
 
 ## 📖 Documentation
 
-- [Webpack Loader](./packages/pkl-webpack-loader/README.md)
 - [Next.js Plugin](./packages/nextjs-pkl-plugin/README.md)
+- [Vite Plugin](./packages/vite-pkl-plugin/README.md)
+- [Webpack Loader](./packages/pkl-webpack-loader/README.md)
 - [API Reference](./packages/pkl/README.md)
 
 ## 🎯 Roadmap
 
+- [x] Next.js plugin
+- [x] Vite plugin
+- [x] Webpack loader
 - [ ] WebAssembly runtime
-- [ ] Vite plugin
 - [ ] Rich type bindings (Duration, DataSize)
 - [ ] VS Code extension
 

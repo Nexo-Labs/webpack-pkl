@@ -24,6 +24,8 @@ jobs:
             directory: "packages/pkl-webpack-loader"
           - name: "nextjs-pkl-plugin"
             directory: "packages/nextjs-pkl-plugin"
+          - name: "vite-pkl-plugin"
+            directory: "packages/vite-pkl-plugin"
           - name: "pkl"
             directory: "packages/pkl"
     steps:

@@ -1,0 +1,20 @@
+appName = "Vite PKL Demo"
+version = "1.0.0"
+environment = "development"
+
+database {
+  host = "localhost"
+  port = 5432
+  name = "vite_demo"
+}
+
+features {
+  darkMode = true
+  analytics = false
+  notifications = true
+}
+
+theme {
+  primary = "#646cff"
+  secondary = "#f9f9f9"
+} 
