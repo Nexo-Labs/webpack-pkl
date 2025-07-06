@@ -138,6 +138,7 @@ import file from "./version.pkl" with { type: "pkl" };
 ```
 ```shell
 package.pkl
+package-lock.pkl
 ```
 
 ## 📄 License
