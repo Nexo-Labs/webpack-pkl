@@ -131,9 +131,14 @@ console.log(config.appName);
 - [x] Next.js plugin
 - [x] Vite plugin
 - [x] Webpack loader
-- [ ] WebAssembly runtime
-- [ ] Rich type bindings (Duration, DataSize)
-- [ ] VS Code extension
+- [ ] Increase integration with the JS/TS environment globaly, maybe someday
+
+```javascript
+import file from "./version.pkl" with { type: "pkl" };
+```
+```shell
+package.pkl
+```
 
 ## 📄 License
 
