@@ -1,4 +1,4 @@
-# PKL Integration Toolkit
+# PKL Integration Toolkit: Work in progress
 
 Complete PKL configuration toolkit for Node.js, Next.js, and Vite applications with seamless integration.
 
